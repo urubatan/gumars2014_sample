@@ -23,3 +23,15 @@ Então(/^devo ver o menu "(.*?)" com as seguintes opções:$/) do |menu, opcoes|
     end
   end
 end
+
+Então(/^não devo ver as seguintes opções no menu "(.*?)":$/) do |menu, opcoes|
+  within "section#menu" do
+    page.should have_content(menu)
+    opcoes.hashes.each do |line|
+      text = line["opcao"]
+      within "ul.menu" do
+        page.should_not have_content(text)
+      end
+    end
+  end
+end
