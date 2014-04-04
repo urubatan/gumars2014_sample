@@ -19,6 +19,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

@@ -1,0 +1,13 @@
+<h2>Formulário de login</h2>
+<% unless @session.errors.empty? %>
+  <div class="errors">
+    <% @session.errors.full_messages.each do |m| %>
+      <div class="error"><%= m %></div>
+    <% end %>
+  </div>
+<% end %>
+<%= form_for @session do |f| %>
+  <p><%= f.label :login, "Nome" %> <%= f.text_field :login %></p>
+  <p><%= f.label :password, "Senha" %> <%= f.password_field :password %></p>
+  <p><%= f.submit "Login" %></p>
+<% end %>

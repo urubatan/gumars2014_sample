@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guma2014</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+    <title>Guma2014</title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<section id="menu">
+    <% if session[:usuario] %>
+        <h2 class="menu"><%= t("menu.#{session[:usuario].papel}") %></h2>
+        <ul class="menu">
+            <% if session[:usuario].papel=='administrador' %>
+                <li>Criar usuário</li>
+                <li>Cadastrar Aluno</li>
+            <% end %>
+            <li>Lista de usuários</li>
+            <li>Lista de alunos</li>
+        </ul>
+    <% end %>
+</section>
+<article>
+    <%= yield %>
+</article>
 </body>
 </html>

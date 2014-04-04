@@ -11,6 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140404012615) do
+
+  create_table "alunos", force: true do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usuarios", force: true do |t|
+    t.string   "nome"
+    t.string   "senha"
+    t.string   "papel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
